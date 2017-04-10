@@ -1,5 +1,4 @@
-#
-# Copyright 2014 The CyanogenMod Project
+# Copyright (C) 2015 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,22 +11,18 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(BOARD_VENDOR),lge)
-ifeq ($(TARGET_BOARD_PLATFORM),msm8916)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
 include $(CLEAR_VARS)
 
-# Create a link for the WCNSS config file, which ends up as a writable
-# version in /data/misc/wifi
-# $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
-#    ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
-#	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
+LOCAL_SRC_FILES := \
+    lge_ril.cpp
 
-endif
-endif
+LOCAL_SHARED_LIBRARIES := libbinder
+
+LOCAL_MODULE := liblge
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_CLASS := SHARED_LIBRARIES
+
+include $(BUILD_SHARED_LIBRARY)

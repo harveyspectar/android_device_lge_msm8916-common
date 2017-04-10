@@ -13,7 +13,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.camera.pip.support=0
+persist.camera.pip.support=0 \
+media.stagefright.legacyencoder=true \
+media.stagefright.less-secure=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     camera2.portability.force_api=1
@@ -21,6 +23,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.cne.feature=1
+
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    qcom.bluetooth.soc=smd
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -63,9 +69,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
+    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
+    rild.libargs=-d /dev/smd0 \
     persist.data.netmgrd.qos.enable=false \
     persist.radio.apm_sim_not_pwdn=1 \
-    ro.telephony.ril_class=LgeLteRIL \
     ro.use_data_netmgrd=true
 
 # Set max background services

@@ -41,7 +41,7 @@ PRODUCT_COPY_FILES += \
 -include $(LOCAL_PATH)/system_prop.mk
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp
+    persist.sys.usb.config=mtp,adb
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -50,15 +50,22 @@ PRODUCT_PACKAGES += \
     audio.primary.msm8916 \
     audio.r_submix.default \
     audio.usb.default \
+    audio_policy.msm8916 \
+    tinymix
+
+PRODUCT_PACKAGES += \
+    libaudio-resampler \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing
 
-# Audio configuration
+# Audio
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(LOCAL_PATH)/configs/audio_platform_info.xml:system/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
+    frameworks/av/services/audiopolicy/config/a2dp_audio_policy_configuration.xml:system/etc/a2dp_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/etc/r_submix_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml \
+    frameworks/av/services/audiopolicy/config/default_volume_tables.xml:system/etc/default_volume_tables.xml
 
 # Charger
 PRODUCT_PACKAGES += \
@@ -80,6 +87,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     e2fsck
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sec_config:system/etc/sec_config
@@ -96,9 +107,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
-    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_codecs_msm8916.xml:system/etc/media_codecs.xml
 
 # OMX
 PRODUCT_PACKAGES += \
@@ -133,16 +145,27 @@ PRODUCT_PACKAGES += \
     init.qcom.usb.rc \
     init.qcom.bt.sh \
     init.qcom.power.rc \
+    init.qcom.ril.sh \
     init.recovery.qcom.rc \
     init.target.rc \
     ueventd.qcom.rc
 
 # RIL
 PRODUCT_PACKAGES += \
-    libxml2
+    libxml2 \
+    liblge \
+    librmnetctl
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/set-baseband:system/bin/set-baseband
+
+# Snap
+PRODUCT_PACKAGES += \
+    Snap
+
+# Telephony-ext
+PRODUCT_PACKAGES += telephony-ext
+PRODUCT_BOOT_JARS += telephony-ext
 
 # USB
 PRODUCT_PACKAGES += \
@@ -160,7 +183,14 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf
 
 PRODUCT_COPY_FILES += \
+    device/lge/msm8916-common/wcnss/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     device/lge/msm8916-common/wcnss/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    device/lge/msm8916-common/wcnss/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     device/lge/msm8916-common/wcnss/WCNSS_qcom_cfg.ini:system/etc/wifi/WCNSS_qcom_cfg.ini \
-    device/lge/msm8916-common/wcnss/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+    device/lge/msm8916-common/wcnss/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin \
+    device/lge/msm8916-common/wcnss/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    device/lge/msm8916-common/wcnss/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    device/lge/msm8916-common/wcnss/prima/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
+device/lge/msm8916-common/wcnss/prima/WCNSS_qcom_wlan_nv.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin \
+    device/lge/msm8916-common/wcnss/prima/WCNSS_qcom_wlan_nv_boot.bin:system/etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv_boot.bin \
+    device/lge/msm8916-common/wcnss/prima/WCNSS_qcom_cfg.ini:system/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini
+    

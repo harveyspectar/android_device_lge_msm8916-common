@@ -25,7 +25,6 @@ TARGET_BOARD_PLATFORM_GPU := qcom-adreno306
 # CPU
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_BOARD_SUFFIX := _32
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
@@ -41,18 +40,22 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 an
 BOARD_KERNEL_BASE := 0x80000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
-BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x0008000 --ramdisk_offset 0x2000000
-TARGET_KERNEL_SOURCE := kernel/lge/msm8916
+BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x02000000 --tags_offset 0x00000100 --dt device/lge/c70n/recovery/dt.img
 
 # Audio
 AUDIO_FEATURE_ENABLED_KPI_OPTIMIZE := true
 AUDIO_FEATURE_LOW_LATENCY_PRIMARY := true
 BOARD_USES_ALSA_AUDIO := true
+USE_LEGACY_AUDIO_POLICY := 1
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BLUETOOTH_HCI_USE_MCT := true
+
+# Camera
+USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
@@ -70,38 +73,31 @@ USE_OPENGL_RENDERER := true
 EXTENDED_FONT_FOOTPRINT := true
 
 # Init
-TARGET_INIT_VENDOR_LIB := libinit_msm
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Malloc
-MALLOC_IMPL := dlmalloc
-
-# Offmode Charging
-COMMON_GLOBAL_CFLAGS += \
-    -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
-    -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
+MALLOC_SVELTE := true
 
 # Partitions
 BOARD_FLASH_BLOCK_SIZE := 131072
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
 
 # Qualcomm support
 BOARD_USES_QCOM_HARDWARE := true
-
+# Qualcomm codecs (why the hell it cannot use unified variable?)
+QCOM_HARDWARE := true
 # Recovery
 TARGET_USERIMAGES_USE_EXT4 := true
 
-# Radio
-BOARD_RIL_CLASS := ../../../device/lge/msm8916-common/ril/
-TARGET_RELEASE_CPPFLAGS += -DNEEDS_LGE_RIL_SYMBOLS
+# RIL
+BOARD_GLOBAL_CFLAGS += -DUSE_RIL_VERSION_10
+BOARD_GLOBAL_CPPFLAGS += -DUSE_RIL_VERSION_10
+TARGET_RIL_VARIANT := caf
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-#BOARD_SEPOLICY_DIRS += device/lge/msm8916-common/sepolicy
-#BOARD_SEPOLICY_UNION += \
 
 # Time services
 BOARD_USES_QC_TIME_SERVICES := true
@@ -113,6 +109,8 @@ BOARD_HOSTAPD_DRIVER := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
 BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wlan.ko"
+WIFI_DRIVER_MODULE_NAME := "wlan0"
 TARGET_USES_WCNSS_CTRL := true
 TARGET_USES_QCOM_WCNSS_QMI := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
