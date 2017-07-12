@@ -144,6 +144,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/netmgr_config.xml:system/etc/data/netmgr_config.xml \
     $(LOCAL_PATH)/configs/qmi_config.xml:system/etc/data/qmi_config.xml
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    init.qcom.rc \
+    init.qcom.usb.rc \
+    init.qcom.bt.sh \
+    init.qcom.power.rc \
+    init.recovery.qcom.rc \
+    init.baseband.sh \
+    ueventd.qcom.rc
+
 # Debug
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
