@@ -1,5 +1,5 @@
 #
-# Copyright 2014 The CyanogenMod Project
+# Copyright 2017 The Lineage OS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,11 +23,11 @@ include $(call all-makefiles-under,$(LOCAL_PATH))
 
 include $(CLEAR_VARS)
 
-# Create a link for the WCNSS config file, which ends up as a writable
-# version in /data/misc/wifi
-# $(shell mkdir -p $(TARGET_OUT)/etc/firmware/wlan/prima; \
-#    ln -sf /data/misc/wifi/WCNSS_qcom_cfg.ini \
-#	    $(TARGET_OUT)/etc/firmware/wlan/prima/WCNSS_qcom_cfg.ini)
+$(shell mkdir -p $(TARGET_OUT_ETC)/firmware/wcd9306; \
+        ln -sf /data/misc/audio/wcd9320_anc.bin \
+        $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_anc.bin; \
+        ln -sf /data/misc/audio/mbhc.bin \
+        $(TARGET_OUT_ETC)/firmware/wcd9306/wcd9306_mbhc.bin)
 
 endif
 endif

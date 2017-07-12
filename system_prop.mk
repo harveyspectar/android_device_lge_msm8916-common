@@ -13,12 +13,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
-persist.camera.pip.support=0 \
-media.stagefright.legacyencoder=true \
-media.stagefright.less-secure=true
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
+    camera2.portability.force_api=1 \
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
 
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -41,8 +38,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # GPS
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.gps.qc_nlp_in_use=0 \
-    ro.gps.agps_provider=1
+    persist.gps.qc_nlp_in_use=1 \
+    persist.loc.nlp_name=com.qualcomm.services.location \
+    ro.gps.agps_provider=1 \
+    ro.qc.sdk.izat.premium_enabled=0 \
+    ro.qc.sdk.izat.service_mask=0x0
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -67,13 +67,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.min_freq_0=800000 \
     ro.vendor.extension_library=libqti-perfd-client.so
 
+# QMI
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.data.netmgrd.qos.enable=false \
+    persist.data.qmi.adb_logmask=0 \
+    persist.qcril.disable_retry=true \
+    rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
+    ro.use_data_netmgrd=true	
+
 # Radio
 PRODUCT_PROPERTY_OVERRIDES += \
-    rild.libpath=/system/vendor/lib/libril-qc-qmi-1.so \
-    rild.libargs=-d /dev/smd0 \
     persist.data.netmgrd.qos.enable=false \
     persist.radio.apm_sim_not_pwdn=1 \
-    ro.use_data_netmgrd=true
+    ro.use_data_netmgrd=true \
+    rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
+    telephony.lteOnGsmDevice=1 \
+    DEVICE_PROVISIONED=1 \
+    ro.telephony.default_network=22
 
 # Set max background services
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -82,3 +92,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Time
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true
+	
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.qualcomm.sns.hal=1 \
+    debug.qualcomm.sns.daemon=1 \
+    debug.qualcomm.sns.libsensor1=1 \
+    persist.debug.sensors.hal=1 \
+    persist.debug.ar.hal=1 
