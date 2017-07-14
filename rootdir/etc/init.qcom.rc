@@ -407,6 +407,8 @@ on boot
     chmod 664 /sys/devices/virtual/input/lge_touch/touch_wake_up_test
     chown system system /sys/devices/virtual/input/lge_touch/quick_cover_status
     chmod 664 /sys/devices/virtual/input/lge_touch/quick_cover_status
+    chown system system /sys/devices/virtual/input/lge_touch/knock_on_type
+    chmod 664 /sys/devices/virtual/input/lge_touch/knock_on_type
     # END touch_knock_on
 
 on property:init.svc.wpa_supplicant=stopped
