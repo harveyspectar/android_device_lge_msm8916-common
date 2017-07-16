@@ -281,13 +281,13 @@ on boot
     setprop wifi.interface wlan0
 
     # permissions for NFC
-    chmod 0600 /dev/pn547
-    chown nfc nfc /dev/pn547
+    chmod 0600 /dev/bcm2079x
+    chown nfc nfc /dev/bcm2079x
     setprop debug.nfc.fw_download "true"
     setprop debug.nfc.fw_boot_download "false"
   		  
-    # HAL looks for pn54x but kernel driver uses pn547
-    symlink /dev/pn547 /dev/pn54x
+    # HAL looks for bcm2079x but kernel driver uses bcm2079x
+    symlink /dev/bcm2079x /dev/bcm2079x
 
 #   Define TCP buffer sizes for various networks
 #   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
