@@ -154,6 +154,7 @@ PRODUCT_PACKAGES += \
     init.board.fm.rc \
     init.baseband.sh \
     init.qcom.fm.sh \
+    init.class_main.sh \
     ueventd.qcom.rc
 
 # Debug
