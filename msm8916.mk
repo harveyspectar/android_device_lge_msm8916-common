@@ -151,7 +151,9 @@ PRODUCT_PACKAGES += \
     init.qcom.bt.sh \
     init.qcom.power.rc \
     init.recovery.qcom.rc \
+    init.board.fm.rc \
     init.baseband.sh \
+    init.qcom.fm.sh \
     ueventd.qcom.rc
 
 # Debug
