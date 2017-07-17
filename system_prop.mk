@@ -83,7 +83,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     telephony.lteOnGsmDevice=1 \
     DEVICE_PROVISIONED=1 \
-    rild.libargs=-d /dev/smd0 \
+    rild.libargs=-d/dev/smd0 \
     ril.subscription.types=NV,RUIM \
     ro.telephony.default_network=9
 
