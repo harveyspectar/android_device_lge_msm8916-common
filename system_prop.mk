@@ -83,7 +83,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib/libril-qc-qmi-1.so \
     telephony.lteOnGsmDevice=1 \
     DEVICE_PROVISIONED=1 \
-    ro.telephony.default_network=22
+    rild.libargs=-d /dev/smd0 \
+    ril.subscription.types=NV,RUIM \
+    ro.telephony.default_network=9
 
 # Set max background services
 PRODUCT_PROPERTY_OVERRIDES += \
