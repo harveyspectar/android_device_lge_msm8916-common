@@ -201,10 +201,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     device/lge/msm8916-common/configs/sensors/hals.conf:system/etc/sensors/hals.conf
 
-# Gestures
-PRODUCT_PACKAGES += \
-    GestureHandler
-
 PRODUCT_COPY_FILES += \
     device/lge/msm8916-common/wcnss/p2p_supplicant.conf:system/etc/wifi/p2p_supplicant.conf \
     device/lge/msm8916-common/wcnss/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
