@@ -399,7 +399,7 @@ on boot
     chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_data
     chown system radio /sys/devices/virtual/input/lge_touch/lpwg_notify
     chmod 664 /sys/devices/virtual/input/lge_touch/lpwg_notify
-    write /sys/class/devices/virtual/input/lge_touch/lpwg_notify 1
+    #write /sys/class/devices/virtual/input/lge_touch/lpwg_notify 1
     chown system system /sys/devices/virtual/input/lge_touch/lpwg_test_info
     chmod 644 /sys/devices/virtual/input/lge_touch/lpwg_test_info
     chown system system /sys/devices/virtual/input/lge_touch/lpwg_test_ctrl
@@ -410,6 +410,8 @@ on boot
     chmod 664 /sys/devices/virtual/input/lge_touch/quick_cover_status
     chown system system /sys/devices/virtual/input/lge_touch/knock_on_type
     chmod 664 /sys/devices/virtual/input/lge_touch/knock_on_type
+    chown system system /sys/devices/virtual/input/lge_touch/tap_to_wake
+    chmod 664 /sys/devices/virtual/input/lge_touch/tap_to_wake
     # END touch_knock_on
 
 on property:init.svc.wpa_supplicant=stopped
