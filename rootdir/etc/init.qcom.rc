@@ -29,6 +29,7 @@ import init.qcom.usb.rc
 import init.qcom.power.rc
 import init.target.rc
 import init.board.fm.rc
+import init.board.sensors.rc
 
 on early-init
     symlink /dev/diag_lge /dev/diag

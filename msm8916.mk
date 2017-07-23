@@ -152,6 +152,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.recovery.qcom.rc \
     init.board.fm.rc \
+	init.board.sensors.rc \
     init.baseband.sh \
     init.qcom.fm.sh \
     init.class_main.sh \
