@@ -142,16 +142,3 @@ on boot
 	chmod 0440 /sys/devices/virtual/input/lge_light/properties
 	chmod 0660 /sys/devices/virtual/input/lge_light/value
 	chmod 0660 /sys/devices/virtual/input/lge_light/poll_delay
-
-on post-fs-data
-	chmod 0755 /sns
-	hown system system /sns
-	mkdir /data/misc/sensor 0775 system system
-	restorecon_recursive /data/misc/sensor
-
-#Sensor daemon
-service sensord /system/bin/sensord
-	user system
-	group system
-	class main
-	seclabel u:r:sensord:s0
