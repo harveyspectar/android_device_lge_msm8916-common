@@ -100,4 +100,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.qualcomm.sns.daemon=1 \
     debug.qualcomm.sns.libsensor1=1 \
     persist.debug.sensors.hal=1 \
-    persist.debug.ar.hal=1 
+    persist.debug.ar.hal=1
+
+# Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    drm.service.enabled=1 \
+    vidc.enc.narrow.searchrange=1
+
+# Storage
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.sys.sdcardfs=true
+
