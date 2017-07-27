@@ -140,7 +140,7 @@ WLAN_PATH = wlan-caf
 TARGET_HAVE_SIGNED_VENUS_FW := true
 TARGET_USES_MEDIA_EXTENSIONS := true
 
-# Enable sensor multi HAL
+# Sensors
 USE_SENSOR_MULTI_HAL := true
 
 # SeLinux #TODO
