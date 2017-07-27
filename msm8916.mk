@@ -108,10 +108,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
 # Keystore
-##ifneq ($(TARGET_PROVIDES_KEYMASTER),true)
-#PRODUCT_PACKAGES += \
-#    keystore.msm8916
-#endif
+ifneq ($(TARGET_PROVIDES_KEYMASTER),true)
+PRODUCT_PACKAGES += \
+    keystore.msm8916
+endif
 
 # Media
 PRODUCT_COPY_FILES += \
