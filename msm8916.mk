@@ -202,6 +202,11 @@ PRODUCT_PACKAGES += \
     wpa_supplicant \
     wpa_supplicant.conf
 
+# WiFi Display
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.debug.wfd.enable=1
+    persist.sys.wfd.virtual=0
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/hostapd.accept:system/etc/hostapd/hostapd.accept \
     $(LOCAL_PATH)/configs/hostapd.conf:system/etc/hostapd/hostapd_default.conf \
