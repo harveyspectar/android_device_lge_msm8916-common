@@ -87,10 +87,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     e2fsck
 
-# Gestures and Glove mode package
-PRODUCT_PACKAGES += \
-    DeviceSettings
-
 # CMActions
 PRODUCT_PACKAGE += \
     CMActions
