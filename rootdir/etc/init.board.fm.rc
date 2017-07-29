@@ -4,6 +4,7 @@ on boot
 
     chmod 0644 /dev/radio0
     chown fm_radio fm_radio /dev/radio0
+    setprop ro.fm.module QCT
 
 on post-fs-data
     mkdir /data/misc/fm 0770 system system
@@ -13,5 +14,4 @@ service fm_dl /system/bin/sh /init.qcom.fm.sh
     class late_start
     user system
     group system
-    disabled
     oneshot

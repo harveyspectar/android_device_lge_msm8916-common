@@ -42,9 +42,6 @@ PRODUCT_COPY_FILES += \
 # System properties
 -include $(LOCAL_PATH)/system_prop.mk
 
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb
-
 # Audio
 PRODUCT_PACKAGES += \
     audiod \
@@ -82,7 +79,7 @@ PRODUCT_PACKAGES += \
     hwcomposer.msm8916 \
     libtinyxml \
     memtrack.msm8916
-    
+
 # Filesystem
 PRODUCT_PACKAGES += \
     e2fsck
@@ -157,7 +154,7 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.recovery.qcom.rc \
     init.board.fm.rc \
-	init.board.sensors.rc \
+    init.board.sensors.rc \
     init.baseband.sh \
     init.qcom.fm.sh \
     init.class_main.sh \
