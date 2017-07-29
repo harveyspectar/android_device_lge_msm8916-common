@@ -1,3 +1,10 @@
 type sensord, domain;
 type sensord_exec, exec_type, file_type;
 init_daemon_domain(sensord)
+
+allow sensord proc:file { getattr open read };
+allow sensord sysfs:file { open read write };
+allow sensord system_data_file:dir { add_name remove_name setattr write };
+allow sensord system_data_file:fifo_file { open read setattr write };
+allow sensord system_data_file:file { append create open read setattr unlink write };
+allow sensord unlabeled:file { open read };
