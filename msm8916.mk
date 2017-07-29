@@ -112,6 +112,9 @@ PRODUCT_PACKAGES += \
 endif
 
 # Media
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert
+
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
@@ -139,6 +142,14 @@ PRODUCT_BOOT_JARS += \
 # Power HAL
 PRODUCT_PACKAGES += \
     power.msm8916
+
+# QMI
+PRODUCT_PACKAGES += \
+    libjson
+
+# Lights
+PRODUCT_PACKAGES += \
+    lights.msm8916
 
 # Qualcomm
 PRODUCT_COPY_FILES += \
@@ -179,6 +190,7 @@ PRODUCT_PACKAGES += \
 
 # Snap
 PRODUCT_PACKAGES += \
+    libbson \
     Snap
 
 # Telephony-ext
@@ -223,3 +235,13 @@ PRODUCT_PACKAGES += \
     AntHalService \
     com.dsi.ant.antradio_library \
     libantradio
+
+# LiveDisplay native
+PRODUCT_PACKAGES += \
+    libjni_livedisplay
+
+# Ebtables
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes \
+    libebtc
