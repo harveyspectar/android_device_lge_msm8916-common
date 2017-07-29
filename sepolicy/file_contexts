@@ -33,8 +33,8 @@
 /dev/block/platform/soc.0/7824900.sdhci/by-name/config                u:object_r:frp_block_device:s0
 
 # Sensors
-/dev/akm8973.*	                                	u:object_r:sensors_device:s0
+/dev/akm8973.*                                  u:object_r:sensors_device:s0
 /dev/msm_dsps                                   u:object_r:sensors_device:s0
 /dev/sensors                                    u:object_r:sensors_device:s0
-/dev/accelerometer                             	u:object_r:sensors_device:s0
+/dev/accelerometer                              u:object_r:sensors_device:s0
 /persist/sensors(/.*)?                          u:object_r:sensors_persist_file:s0
