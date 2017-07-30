@@ -240,12 +240,3 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8916
-
-# Sensors
-PRODUCT_PACKAGES += \
-    sensors.msm8916 \
-    sensors.qcom
