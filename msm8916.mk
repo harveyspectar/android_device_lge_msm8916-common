@@ -186,7 +186,6 @@ PRODUCT_PACKAGES += \
 
 # Snap
 PRODUCT_PACKAGES += \
-    libbson \
     Snap
 
 # Telephony-ext
