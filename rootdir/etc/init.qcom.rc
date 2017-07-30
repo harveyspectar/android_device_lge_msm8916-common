@@ -457,6 +457,12 @@ on boot
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chmod 0660 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 
+    # vm_bms
+    chown root system /sys/class/power_supply/bms/current_now
+    chown root system /sys/class/power_supply/bms/voltage_ocv
+    chmod 0664 /sys/class/power_supply/bms/current_now
+    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
+
 on property:init.svc.wpa_supplicant=stopped
     stop dhcpcd
 
@@ -694,5 +700,6 @@ on property:gsm.version.baseband=""
     start baseband-sh
 
 service vm_bms /system/bin/vm_bms
+    class main
     user root
-    group root
+    group root wakelock
