@@ -9,5 +9,4 @@ allow sensord system_data_file:fifo_file { open read setattr write };
 allow sensord system_data_file:file { open read };
 allow sensord unlabeled:file { open read };
 allow sensord input_device:dir search;
-allow sensord system_data_file:file create;
 allow sensord unlabeled:dir search;
