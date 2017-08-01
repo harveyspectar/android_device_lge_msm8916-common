@@ -240,3 +240,7 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
     libebtc
+
+# IMS
+PRODUCT_PACKAGES += \
+    libshims_ims
