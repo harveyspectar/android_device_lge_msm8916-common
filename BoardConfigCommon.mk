@@ -122,9 +122,13 @@ BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
 
 # Offmode Charging
-WITH_CM_CHARGER := true
+BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_NO_CHARGER_LED := true
+BOARD_GLOBAL_CFLAGS += \
+    -DBOARD_CHARGING_CMDLINE_NAME='"androidboot.mode"' \
+    -DBOARD_CHARGING_CMDLINE_VALUE='"chargerlogo"'
 
 # Wifi
 BOARD_HAS_QCOM_WCNSS := true
