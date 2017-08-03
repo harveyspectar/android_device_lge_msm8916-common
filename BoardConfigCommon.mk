@@ -101,6 +101,9 @@ TARGET_ENABLE_QC_AV_ENHANCEMENTS := true
 # Fonts
 EXTENDED_FONT_FOOTPRINT := true
 
+# Filesystem
+TARGET_ANDROID_FILESYSTEM_CONFIG_H := $(VENDOR_PATH)/android_filesystem_config.h
+
 # Init
 TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
