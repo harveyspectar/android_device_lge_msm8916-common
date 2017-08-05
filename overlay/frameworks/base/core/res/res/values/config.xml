@@ -343,5 +343,8 @@
 
     <!-- Configuration to support SIM contact batch operation -->
     <bool name="config_sim_phonebook_batch_operation">false</bool>
+    
+    <!-- Enable blur support -->
+    <bool name="config_uiBlurEnabled">true</bool>
 
 </resources>
