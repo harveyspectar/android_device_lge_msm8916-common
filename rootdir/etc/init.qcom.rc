@@ -28,7 +28,6 @@
 import init.qcom.usb.rc
 import init.qcom.power.rc
 import init.target.rc
-import init.board.fm.rc
 import init.board.sensors.rc
 
 on early-init
@@ -208,6 +207,10 @@ on post-fs-data
     chown system system /sys/class/input/event0/device/enable
     chmod 0660 /sys/class/input/event0/device/enable
 
+    #FM Radio
+    mkdir /data/misc/fm 0770 system system
+    chmod 0770 /data/misc/fm
+
 service baseband-sh /system/bin/sh /init.baseband.sh
     class late_start
     user root
@@ -262,6 +265,11 @@ on boot
 
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
+
+    #FM Radio
+    chmod 0644 /dev/radio0
+    chown fm_radio fm_radio /dev/radio0
+    setprop ro.fm.module QCT
 
     #Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
@@ -679,10 +687,11 @@ service wcnss-service /system/bin/wcnss_service
 
 # Sensor daemon
 service sensord /system/bin/sensord
-    user system
-    group system
-    class late_start
-    oneshot
+    class main
+    user root
+
+on property:init.svc.zygote=restarting
+    restart sensord
 
 service ril-daemon2 /system/bin/rild -c 2
     class main
@@ -738,3 +747,9 @@ service imsqmidaemon /system/bin/imsqmidaemon
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
+
+service fm_dl /system/bin/sh /init.qcom.fm.sh
+    class late_start
+    user system
+    group system
+    oneshot
