@@ -119,11 +119,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0
-
-# IMS
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.radio.jbims=1 \
-    persist.radio.ROTATION_ENABLE=1 \
-    persist.radio.VT_ENABLE=1 \
-    persist.radio.VT_HYBRID_ENABLE=1 \
-    persist.radio.VT_USE_MDM_TIME=0
