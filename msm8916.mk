@@ -239,6 +239,10 @@ PRODUCT_PACKAGES += \
     ethertypes \
     libebtc
 
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8916
+
 # IMS
 PRODUCT_PACKAGES += \
     libshims_ims
