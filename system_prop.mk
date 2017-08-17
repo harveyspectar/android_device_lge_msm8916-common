@@ -119,3 +119,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1 \
     persist.sys.wfd.virtual=0
+
+# HWADDRS
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.bt.bdaddr_path="/data/misc/bluetooth/bdaddr"
