@@ -14,18 +14,22 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.settings.device;
+package com.cyanogenmod.cmactions;
 
-import android.os.Bundle;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
-import com.android.settingslib.drawer.SettingsDrawerActivity;
+public class BootCompletedReceiver extends BroadcastReceiver {
 
-public class TouchscreenGesturePreferenceActivity extends SettingsDrawerActivity {
+    private static final boolean DEBUG = false;
+    private static final String TAG = "CMActions";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        getFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, new TouchscreenGesturePreferenceFragment()).commit();
+    public void onReceive(final Context context, Intent intent) {
+        if (DEBUG) Log.d(TAG, "Starting service");
+        context.startService(new Intent(context, CMActionsService.class));
     }
+
 }
