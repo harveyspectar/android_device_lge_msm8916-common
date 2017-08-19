@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package com.cyanogenmod.cmactions;
+package com.cyanogenmod.settings.device;
 
 import android.os.Bundle;
 
 import com.android.settingslib.drawer.SettingsDrawerActivity;
 
-public class GesturePreferenceActivity extends SettingsDrawerActivity {
+public class TouchscreenGesturePreferenceActivity extends SettingsDrawerActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, new GesturePreferenceFragment()).commit();
+                .replace(R.id.content_frame, new TouchscreenGesturePreferenceFragment())
+                .commit();
     }
-
 }
