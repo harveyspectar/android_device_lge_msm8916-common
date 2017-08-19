@@ -84,9 +84,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     e2fsck
 
-# CMActions
-PRODUCT_PACKAGE += \
-    CMActions
+# Gestures and Glove mode package
+PRODUCT_PACKAGES += \
+    DeviceSettings
 
 # Jelly
 PRODUCT_PACKAGES += \
